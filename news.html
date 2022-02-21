@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/styles/news.css">
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+      
+      let show_data = JSON.parse(localStorage.getItem("click_images_data")) || [];
+
+      append_data(show_data);
+
+      function append_data(el){
+
+      let div = document.createElement("div");
+
+        let images = document.createElement("img");
+        images.src = el.urlToImage;
+
+        let title = document.createElement("p");
+        title.innerText = el.title;
+        title.id = "par"
+
+        let description = document.createElement("p");
+        description.innerText = el.description;
+
+        div.append(images, title, description);
+        main.append(div)
+
+      }
+
+  </script>
+</html>
